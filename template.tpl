@@ -1,11 +1,3 @@
-___TERMS_OF_SERVICE___
-
-By creating or modifying this file you agree to Google Tag Manager's Community
-Template Gallery Developer Terms of Service available at
-https://developers.google.com/tag-manager/gallery-tos (or such other URL as
-Google may provide), as modified from time to time.
-
-
 ___INFO___
 
 {
@@ -17,14 +9,32 @@ ___INFO___
   "description": "",
   "containerContexts": [
     "WEB"
-  ],
-  "brand": {}
+  ]
 }
 
 
 ___TEMPLATE_PARAMETERS___
 
 []
+
+
+___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+
+// Enter your template code here.
+const log = require('logToConsole');
+const addEventCallback = require('addEventCallback');
+const aliasInWindow = require('aliasInWindow');
+const setInWindow = require('setInWindow');
+const getCookieValues = require('getCookieValues');
+const getUrl = require('getUrl');
+const injectHiddenIframe = require('injectHiddenIframe');
+const injectScript = require('injectScript');
+const sendPixel = require('sendPixel');
+const setCookie = require('setCookie');
+log('data =', data);
+
+// Variables must return a value.
+return false;
 
 
 ___WEB_PERMISSIONS___
@@ -74,7 +84,23 @@ ___WEB_PERMISSIONS___
         "publicId": "get_cookies",
         "versionId": "1"
       },
-      "param": []
+      "param": [
+        {
+          "key": "cookieNames",
+          "value": {
+            "type": 2,
+            "listItem": [
+              {
+                "type": 1,
+                "string": "test"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
     },
     "isRequired": true
   },
@@ -114,7 +140,66 @@ ___WEB_PERMISSIONS___
         "publicId": "set_cookies",
         "versionId": "1"
       },
-      "param": []
+      "param": [
+        {
+          "key": "allowedCookies",
+          "value": {
+            "type": 2,
+            "listItem": [
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "name"
+                  },
+                  {
+                    "type": 1,
+                    "string": "domain"
+                  },
+                  {
+                    "type": 1,
+                    "string": "path"
+                  },
+                  {
+                    "type": 1,
+                    "string": "secure"
+                  },
+                  {
+                    "type": 1,
+                    "string": "session"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "test"
+                  },
+                  {
+                    "type": 1,
+                    "string": "test.com"
+                  },
+                  {
+                    "type": 1,
+                    "string": ""
+                  },
+                  {
+                    "type": 1,
+                    "string": "any"
+                  },
+                  {
+                    "type": 1,
+                    "string": "any"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
     },
     "isRequired": true
   },
@@ -131,6 +216,13 @@ ___WEB_PERMISSIONS___
             "type": 1,
             "string": "any"
           }
+        },
+        {
+          "key": "queriesAllowed",
+          "value": {
+            "type": 1,
+            "string": "any"
+          }
         }
       ]
     },
@@ -139,25 +231,13 @@ ___WEB_PERMISSIONS___
 ]
 
 
-___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+___TESTS___
 
-// Enter your template code here.
-const log = require('logToConsole');
-const addEventCallback = require('addEventCallback');
-const aliasInWindow = require('aliasInWindow');
-const setInWindow = require('setInWindow');
-const getCookieValues = require('getCookieValues');
-const getUrl = require('getUrl');
-const injectHiddenIframe = require('injectHiddenIframe');
-const injectScript = require('injectScript');
-const sendPixel = require('sendPixel');
-const setCookie = require('setCookie');
-log('data =', data);
-
-// Variables must return a value.
-return false;
+scenarios: []
 
 
 ___NOTES___
 
 Created on 8/24/2019, 6:36:01 AM
+
+
